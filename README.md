@@ -155,7 +155,7 @@ These protections reduce accidental disclosure; they do not replace data-classif
 
 ## Secure access from your other devices
 
-Use the agents attached to your work computer from a phone, tablet, or another computer through a paired AgentDeck PWA.
+After pairing from the AgentDeck desktop app, you can use the agents attached to your work computer from a phone, tablet, or another computer.
 
 ```mermaid
 flowchart TB
@@ -214,7 +214,6 @@ Current stable release: **0.1.170**
 | --- | --- | --- |
 | Windows | [AgentDeck Setup 0.1.170.exe](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.170/windows/x64/AgentDeck%20Setup%200.1.170.exe) | Windows 10/11, x64 |
 | macOS | [AgentDeck-0.1.170-arm64.dmg](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.170/macos/arm64/AgentDeck-0.1.170-arm64.dmg) | macOS 13+, Apple Silicon |
-| Web | [Open AgentDeck PWA](https://agentdeck.gendistrict.com) | A paired AgentDeck desktop |
 
 The desktop downloads use immutable, version-specific URLs. Checksums are published in [SHA512SUMS.txt](SHA512SUMS.txt).
 
