@@ -14,7 +14,7 @@ This repository is the official public distribution and support page for AgentDe
   </a>
 </p>
 
-<p align="center"><sub>AgentDeck 0.1.170 desktop session workspace. This is the shipping application—not a mockup—captured in English with isolated synthetic demo data.</sub></p>
+<p align="center"><sub>AgentDeck desktop session workspace. This is the shipping application—not a mockup—captured in English with isolated synthetic demo data.</sub></p>
 
 ## Product tour
 
@@ -208,12 +208,12 @@ AgentDeck learns from frequently repeated local approvals and denials to streaml
 
 ## Download
 
-Current stable release: **0.1.170**
+Current stable release: **0.1.172**
 
 | Platform | Download | Requirements |
 | --- | --- | --- |
-| Windows | [AgentDeck Setup 0.1.170.exe](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.170/windows/x64/AgentDeck%20Setup%200.1.170.exe) | Windows 10/11, x64 |
-| macOS | [AgentDeck-0.1.170-arm64.dmg](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.170/macos/arm64/AgentDeck-0.1.170-arm64.dmg) | macOS 13+, Apple Silicon |
+| Windows | [AgentDeck Setup 0.1.172.exe](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.172/windows/x64/AgentDeck%20Setup%200.1.172.exe) | Windows 10/11, x64 |
+| macOS | [AgentDeck-0.1.172-arm64.dmg](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.172/macos/arm64/AgentDeck-0.1.172-arm64.dmg) | macOS 13+, Apple Silicon |
 
 The desktop downloads use immutable, version-specific URLs. Checksums are published in [SHA512SUMS.txt](SHA512SUMS.txt).
 
