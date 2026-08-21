@@ -4,7 +4,6 @@
   "version": "0.1.170",
   "releaseDate": "2026-08-21",
   "channel": "stable",
-  "skippedVersions": ["0.1.169"],
   "artifacts": [
     {
       "platform": "windows",
