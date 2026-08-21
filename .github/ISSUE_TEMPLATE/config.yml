@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Security report
-    url: https://github.com/GenDistrict/AgentDeck/security/policy
-    about: Report vulnerabilities privately. Do not open a public security issue.
+  - name: Private vulnerability report
+    url: https://github.com/GenDistrict/AgentDeck/security/advisories/new
+    about: Report suspected vulnerabilities privately. Do not open a public security issue.
+  - name: AgentDeck support policy
+    url: https://github.com/GenDistrict/AgentDeck/blob/main/SUPPORT.md
+    about: Check support scope and safe diagnostic-sharing guidance before opening an issue.

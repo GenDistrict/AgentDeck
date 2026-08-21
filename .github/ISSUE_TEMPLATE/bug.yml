@@ -5,7 +5,20 @@ labels: [bug]
 body:
   - type: markdown
     attributes:
-      value: Do not include access tokens, credentials, private transcripts, source files, or unreviewed diagnostics. Report security vulnerabilities privately through SECURITY.md.
+      value: |
+        Do not include access tokens, credentials, private transcripts, source files, customer data, local paths, or unreviewed diagnostics.
+        Report suspected security vulnerabilities privately through the Security Policy, not in this form.
+
+  - type: checkboxes
+    id: privacy_check
+    attributes:
+      label: Public-data check
+      options:
+        - label: I removed account names, email addresses, credentials, private conversations, customer data, project names, and sensitive paths.
+          required: true
+        - label: This is not a security vulnerability.
+          required: true
+
   - type: input
     id: version
     attributes:
@@ -13,43 +26,74 @@ body:
       placeholder: 0.1.170
     validations:
       required: true
+
   - type: dropdown
     id: os
     attributes:
       label: Operating system
       options:
-        - Windows 11
-        - Windows 10
+        - Windows 11 x64
+        - Windows 10 x64
         - macOS Apple Silicon
         - PWA / mobile browser
         - Other
     validations:
       required: true
+
   - type: dropdown
-    id: engine
+    id: component
     attributes:
-      label: Engine
+      label: Affected component
       options:
-        - Claude
-        - Codex
-        - Both
-        - Not engine-specific
+        - Session or transcript
+        - Account or sign-in
+        - Claude engine
+        - Codex engine
+        - Local model or external provider
+        - Approval or automation
+        - Privacy or security control
+        - Remote PWA or device pairing
+        - Usage or limits
+        - Installer or updater
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: regression
+    attributes:
+      label: Did this work in an earlier version?
+      options:
+        - Yes
+        - No
+        - Not sure
+    validations:
+      required: true
+
   - type: textarea
     id: steps
     attributes:
       label: Steps to reproduce
-      description: Use a minimal example without private data.
+      description: Use a minimal example with non-sensitive test data.
     validations:
       required: true
+
   - type: textarea
     id: expected
     attributes:
       label: Expected behavior
     validations:
       required: true
+
   - type: textarea
     id: actual
     attributes:
       label: Actual behavior
     validations:
       required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional redacted context
+      description: Do not upload raw diagnostics. Screenshots must be reviewed and redacted first.

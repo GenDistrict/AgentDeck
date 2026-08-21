@@ -1,0 +1,60 @@
+name: Feature request
+description: Suggest an AgentDeck improvement or new capability.
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include confidential workflows, credentials, customer information, private prompts, or proprietary source code.
+
+  - type: checkboxes
+    id: privacy_check
+    attributes:
+      label: Public-data check
+      options:
+        - label: I removed confidential, personal, customer, and account-specific information.
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: Describe the outcome you need, using non-sensitive examples.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: What should AgentDeck do?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Product area
+      options:
+        - Sessions and accounts
+        - Models and providers
+        - Privacy and security
+        - Remote PWA and devices
+        - Approvals and automation
+        - Usage and administration
+        - Installer and updates
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: security
+    attributes:
+      label: Security or privacy considerations
+      description: Describe any permissions, sensitive data, remote access, or irreversible actions involved.
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional existing workflow or workaround.
