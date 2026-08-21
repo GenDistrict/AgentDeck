@@ -8,6 +8,104 @@ AgentDeck is designed to avoid creating another central store for your AI conver
 
 This repository is the official public distribution and support page for AgentDeck. The application source code and release-signing infrastructure are maintained privately.
 
+<p align="center">
+  <a href="docs/screenshots/02-sessions.png">
+    <img src="docs/screenshots/02-sessions.png" alt="AgentDeck desktop session workspace showing an agent conversation, session list, and security review" width="100%">
+  </a>
+</p>
+
+<p align="center"><sub>AgentDeck 0.1.170 desktop session workspace. This is the shipping application—not a mockup—captured in English with isolated synthetic demo data.</sub></p>
+
+## Product tour
+
+| Home and usage overview | Local security controls |
+| --- | --- |
+| [![AgentDeck home and usage dashboard](docs/screenshots/01-home.png)](docs/screenshots/01-home.png) | [![AgentDeck privacy, prompt-injection, automation, and keep-awake controls](docs/screenshots/03-security.png)](docs/screenshots/03-security.png) |
+| Sessions, projects, plan usage, and estimated API cost at a glance. | Personal-data masking, context protection, prompt-injection checks, local auto-run learning, and keep-awake controls. |
+
+All product screenshots above come from the real Electron application using an isolated capture profile. Names, projects, conversations, paths, organizations, usage values, and accounts are synthetic; no production or user data is present.
+
+## How work moves through AgentDeck
+
+```mermaid
+flowchart TB
+    Remote["Paired phone, tablet,<br/>or another computer"] <-->|"End-to-end encrypted session"| Desktop["AgentDeck on your<br/>work computer"]
+    Input["Prompt, attachments,<br/>and external tool content"] --> Guard["Optional local protection:<br/>masking and injection checks"]
+    Files["Local files, tools,<br/>and isolated credentials"] <--> Desktop
+    Guard --> Desktop
+    Desktop --> Harness{"Claude Code or<br/>Codex harness"}
+    Harness --> Route{"User or organization<br/>selects one model route"}
+    Route --> Local["Local LLM:<br/>llama.cpp, Ollama, LM Studio"]
+    Route --> Cloud["Cloud/API:<br/>Vertex AI, Bedrock, Foundry,<br/>OpenRouter, compatible gateways"]
+    Route --> Company["Company intranet AI<br/>through approved routes"]
+    Control["AgentDeck services"] -. "Account, device, usage,<br/>and connection metadata only" .-> Desktop
+
+    classDef local fill:#0f2b25,stroke:#00d9a3,color:#e6edf3,stroke-width:2px
+    classDef core fill:#17253d,stroke:#58a6ff,color:#e6edf3,stroke-width:2px
+    classDef endpoint fill:#241b35,stroke:#a371f7,color:#e6edf3
+    classDef metadata fill:#20252b,stroke:#8b949e,color:#e6edf3,stroke-dasharray:5 4
+    class Desktop,Guard,Files local
+    class Harness,Route core
+    class Remote,Local,Cloud,Company endpoint
+    class Control metadata
+```
+
+Model content is sent only along the model path selected by the user or organization. A selected provider's data, retention, and training policies still apply, and any provider-side storage or training opt-out must be configured with that provider.
+
+## Security before data leaves your computer
+
+The protection path is local and optional. When enabled, masking values and the encrypted pseudonym dictionary remain on the work computer. A required check can stop transmission before content reaches a model.
+
+```mermaid
+flowchart TB
+    subgraph PRESEND["ON YOUR WORK COMPUTER — BEFORE SENDING"]
+        direction TB
+        Content["Prompt, files, attachments,<br/>and external content"]
+        PII["1 · Personal-data masking<br/>Names · contacts · IDs · cards · keys<br/>(when enabled)"]
+        Context["2 · Sensitive-context masking<br/>Company · customer · domains · paths<br/>(when enabled)"]
+        Inspect{"3 · Prompt-injection<br/>and required-policy checks"}
+        Vault[("Encrypted pseudonym vault<br/>and masking dictionary")]
+        Block["Stop before sending<br/>and ask for review"]
+
+        Content --> PII --> Context --> Inspect
+        PII -. "Pseudonyms only" .-> Vault
+        Context -. "Pseudonyms only" .-> Vault
+        Inspect -->|"Required check fails"| Block
+    end
+
+    subgraph MODEL["ONLY THE SELECTED MODEL ROUTE"]
+        direction LR
+        Provider["User-selected provider or<br/>company-approved AI"]
+        Response["Encrypted model response"]
+        Provider --> Response
+    end
+
+    subgraph RESTORE["ON YOUR WORK COMPUTER — RESPONSE"]
+        direction TB
+        Restore["Restore masked values locally"]
+        Result["Response shown to the user"]
+        Restore --> Result
+    end
+
+    Inspect -->|"Masked request passes"| Provider
+    Response --> Restore
+    Vault -. "Local lookup" .-> Restore
+
+    classDef protect fill:#0f2b25,stroke:#00d9a3,color:#e6edf3,stroke-width:2px
+    classDef vault fill:#17253d,stroke:#58a6ff,color:#e6edf3,stroke-width:2px
+    classDef blocked fill:#3a2418,stroke:#f2a93b,color:#fff3cd,stroke-width:2px
+    classDef external fill:#241b35,stroke:#a371f7,color:#e6edf3
+    class PII,Context,Inspect,Restore protect
+    class Vault vault
+    class Block blocked
+    class Provider,Response external
+    style PRESEND fill:#111820,stroke:#00d9a3,stroke-width:2px
+    style MODEL fill:#191426,stroke:#a371f7,stroke-width:2px
+    style RESTORE fill:#111820,stroke:#00d9a3,stroke-width:2px
+```
+
+Prompt-injection protection specifically inspects untrusted material such as attachments and content returned by web, tool, and connector sources before model exposure. These controls reduce accidental disclosure and hostile instructions; they do not replace data-classification policy or human review.
+
 ## Everything in one agent workspace
 
 - Connect multiple Claude subscription and ChatGPT/Codex accounts on the same computer. Authentication and configuration are isolated per account.
@@ -58,6 +156,29 @@ These protections reduce accidental disclosure; they do not replace data-classif
 ## Secure access from your other devices
 
 Use the agents attached to your work computer from a phone, tablet, or another computer through a paired AgentDeck PWA.
+
+```mermaid
+flowchart TB
+    Pair["Desktop approval + matching<br/>six-digit safety code"] --> Identity["Pinned P-256<br/>device identity"]
+    Identity --> Key["Fresh P-256 ECDH session key<br/>derived with HKDF-SHA-256"]
+    Key --> Cipher["AES-256-GCM<br/>end-to-end encryption"]
+    Cipher --> Route{"Connection route"}
+    Route --> Direct["Direct WebRTC"]
+    Route --> Relay["Fallback relay<br/>opaque encrypted frames only"]
+    Direct --> Gate["Per-device capability allowlist"]
+    Relay --> Gate
+    Gate --> Desktop["AgentDeck on the<br/>work computer"]
+    Revoke["Revoke device"] -. "Closes the active connection" .-> Gate
+
+    classDef trust fill:#0f2b25,stroke:#00d9a3,color:#e6edf3,stroke-width:2px
+    classDef crypto fill:#17253d,stroke:#58a6ff,color:#e6edf3,stroke-width:2px
+    classDef transport fill:#241b35,stroke:#a371f7,color:#e6edf3
+    classDef revoke fill:#3a2418,stroke:#f2a93b,color:#fff3cd,stroke-width:2px
+    class Pair,Identity,Gate,Desktop trust
+    class Key,Cipher crypto
+    class Route,Direct,Relay transport
+    class Revoke revoke
+```
 
 - First-time pairing requires an explicit desktop approval and a matching six-digit safety code.
 - Device identity is pinned with a P-256 public-key fingerprint. An unexpected key change requires re-pairing.
