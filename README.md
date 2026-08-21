@@ -115,6 +115,6 @@ AgentDeck does not provide Claude, ChatGPT, Codex, model-API, cloud-provider, or
 
 ## Legal
 
-AgentDeck is proprietary software distributed by GenDistrict. No open-source license is granted by this repository. See [TERMS.md](TERMS.md), [PRIVACY.md](PRIVACY.md), and [NOTICE.md](NOTICE.md).
+AgentDeck is proprietary software distributed by MAI DEPOT, Inc. under the GenDistrict brand. No open-source license is granted by this repository. See [TERMS.md](TERMS.md), [PRIVACY.md](PRIVACY.md), and [NOTICE.md](NOTICE.md).
 
 Copyright © MAI DEPOT, Inc. All rights reserved.
