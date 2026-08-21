@@ -1,0 +1,55 @@
+name: Bug report
+description: Report a reproducible AgentDeck problem without private data.
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include access tokens, credentials, private transcripts, source files, or unreviewed diagnostics. Report security vulnerabilities privately through SECURITY.md.
+  - type: input
+    id: version
+    attributes:
+      label: AgentDeck version
+      placeholder: 0.1.170
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows 11
+        - Windows 10
+        - macOS Apple Silicon
+        - PWA / mobile browser
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Engine
+      options:
+        - Claude
+        - Codex
+        - Both
+        - Not engine-specific
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use a minimal example without private data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true

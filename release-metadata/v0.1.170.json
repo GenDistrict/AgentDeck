@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "product": "AgentDeck",
+  "version": "0.1.170",
+  "releaseDate": "2026-08-21",
+  "channel": "stable",
+  "skippedVersions": ["0.1.169"],
+  "artifacts": [
+    {
+      "platform": "windows",
+      "arch": "x64",
+      "file": "AgentDeck Setup 0.1.170.exe",
+      "url": "https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.170/windows/x64/AgentDeck%20Setup%200.1.170.exe",
+      "sizeBytes": 363649736,
+      "sha512": "59042cf6b58efdebb45883090826a307ab5b7163128dd99d9d81f1da0e247cf2b0068724ada7cf4da9d8ea2784ee4cc6e0b459805ff5dab8e43864a91e153b1b",
+      "signer": "MAI DEPOT, Inc",
+      "verified": true
+    },
+    {
+      "platform": "darwin",
+      "arch": "arm64",
+      "file": "AgentDeck-0.1.170-arm64.dmg",
+      "url": "https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.170/macos/arm64/AgentDeck-0.1.170-arm64.dmg",
+      "sizeBytes": 439936314,
+      "sha512": "8dd59bb4d2f1af2d79295cdbebdf158f997854cbcec62d32571b54395d6de8b6f939742c1d57b931979109105b8a5ea1a4a9f175b156ec457dc560c0db419462",
+      "signer": "Developer ID Application: MAIDEPOT, Inc (WAH9N3NJX5)",
+      "notarized": true,
+      "stapled": true,
+      "verified": true
+    }
+  ],
+  "pwa": "https://agentdeck.gendistrict.com"
+}
