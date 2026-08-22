@@ -213,7 +213,7 @@ Current stable release: **0.1.176**
 | Platform | Download | Requirements |
 | --- | --- | --- |
 | Windows | [AgentDeck Setup 0.1.176.exe](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.176/windows/x64/AgentDeck%20Setup%200.1.176.exe) | Windows 10/11, x64 |
-| macOS | AgentDeck-0.1.176-arm64.dmg (publishing — available within a few hours) | macOS 13+, Apple Silicon |
+| macOS | [AgentDeck-0.1.176-arm64.dmg](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.176/macos/arm64/AgentDeck-0.1.176-arm64.dmg) | macOS 13+, Apple Silicon |
 
 The desktop downloads use immutable, version-specific URLs. Checksums are published in [SHA512SUMS.txt](SHA512SUMS.txt).
 
