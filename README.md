@@ -222,6 +222,7 @@ The desktop downloads use immutable, version-specific URLs. Checksums are publis
 - Windows installers are Authenticode-signed by `MAI DEPOT, Inc`.
 - macOS installers are signed with Developer ID Application `MAIDEPOT, Inc (WAH9N3NJX5)`, notarized by Apple, and stapled.
 - Compare the downloaded file with [SHA512SUMS.txt](SHA512SUMS.txt) before installation when independent verification is required.
+- **Seeing a caution from Windows or your browser?** That is normal for a newer release while it builds reputation. In the browser choose **Keep**; if SmartScreen appears, check that the publisher reads `MAI DEPOT, Inc` and choose **More info → Run anyway**. macOS builds are notarized and open without warnings.
 
 ## Accounts and provider responsibility
 
