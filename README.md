@@ -208,12 +208,12 @@ AgentDeck learns from frequently repeated local approvals and denials to streaml
 
 ## Download
 
-Current stable release: **0.1.190**
+Current stable release: **0.1.196**
 
 | Platform | Download | Requirements |
 | --- | --- | --- |
-| Windows | [AgentDeck Setup 0.1.190.exe](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.190/windows/x64/AgentDeck%20Setup%200.1.190.exe) | Windows 10/11, x64 |
-| macOS | [AgentDeck-0.1.190-arm64.dmg](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.190/macos/arm64/AgentDeck-0.1.190-arm64.dmg) | macOS 13+, Apple Silicon |
+| Windows | [AgentDeck Setup 0.1.196.exe](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.196/windows/x64/AgentDeck%20Setup%200.1.196.exe) | Windows 10/11, x64 |
+| macOS | [AgentDeck-0.1.196-arm64.dmg](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.196/macos/arm64/AgentDeck-0.1.196-arm64.dmg) | macOS 13+, Apple Silicon |
 
 The desktop downloads use immutable, version-specific URLs. Checksums are published in [SHA512SUMS.txt](SHA512SUMS.txt).
 
