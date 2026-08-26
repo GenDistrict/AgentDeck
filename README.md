@@ -153,9 +153,9 @@ These protections reduce accidental disclosure; they do not replace data-classif
 - Diagnostics are designed to omit account names, messages, work files, and credentials.
 - Safe mode can stop remote access, routines, and update auto-start while restoring the interface to a recoverable state.
 
-## Secure access from your other devices
+## AgentDeck Remote — secure access from your other devices
 
-After pairing from the AgentDeck desktop app, you can use the agents attached to your work computer from a phone, tablet, or another computer.
+AgentDeck Remote pairs a phone, tablet, or another computer with the AgentDeck desktop app, so you can use the agents attached to your work computer from anywhere. If the computer you used last is off, Remote says so and offers your other paired computers right there.
 
 ```mermaid
 flowchart TB
@@ -187,6 +187,23 @@ flowchart TB
 - Each paired device has revocable capability switches and a remote-method allowlist. Revocation closes the active connection.
 - Attachment access is constrained by path containment, symlink rejection, size limits, and sandboxing of untrusted HTML/SVG content.
 
+## Delegate to an outside developer (FDE)
+
+AgentDeck can hand a scoped, audited seat on your work computer to someone you choose — an outside developer, a contractor, or a colleague — without sharing accounts or passwords.
+
+- **One-time invite links** with a role you pick: observe (read-only), collaborate (send messages, run sessions, respond to approvals), or full (adds terminal and file transfer). Invites expire, are single-use, and require a matching safety code plus your explicit approval on the desktop.
+- **Guests see only what you invited them to** — the sessions they started or the ones you explicitly shared, never everything running on your machine.
+- **Folder and capability limits per guest**, with file downloads and uploads gated and every action recorded in an audit log you can review.
+- **Time-boxed by default.** Access ends at expiry (extendable by you) and can be revoked at any moment; revocation closes the live connection immediately.
+
+## Work inside your own signed-in Chrome
+
+Agents can drive the browser you already use — with your logins, cookies, and extensions — instead of a blank automation browser.
+
+- Install the official Playwright Chrome extension once; every connection is a normal Chrome permission prompt you approve, and tab groups show exactly what the agent can reach.
+- This is how an agent gets past login walls legitimately: WordPress admin screens, internal consoles, SaaS settings — the work happens in your session, on your machine, with your approval.
+- Works with both Claude and GPT sessions; the old debug-port method remains as a clearly labeled legacy option.
+
 ## Automation without giving up control
 
 AgentDeck learns from frequently repeated local approvals and denials to streamline routine work. The learning record is kept on the computer and is not sent to the model or AgentDeck servers. High-impact and irreversible actions retain a human checkpoint, and every active session can prevent the computer from sleeping until work or an approval wait is complete.
@@ -201,10 +218,26 @@ AgentDeck learns from frequently repeated local approvals and denials to streaml
 - 구독 한도, 입력·출력·캐시 토큰, 종량제 API 예상 비용을 한곳에서 확인할 수 있습니다.
 - 계정 한도가 차면 같은 엔진의 다른 계정으로 세션을 이어가거나, 최근 맥락 요약과 함께 Claude와 Codex 사이에서 작업을 넘길 수 있습니다.
 - 스마트폰·태블릿·다른 컴퓨터는 데스크톱 승인과 안전 코드로 페어링되며, 종단간 암호화된 기기간 연결로 업무 컴퓨터의 에이전트를 사용할 수 있습니다.
+- **AgentDeck Remote**: 마지막에 쓰던 PC가 꺼져 있으면 그 사실을 알려 주고 다른 PC로 바로 전환할 수 있습니다.
+- **외부 개발자 위임(FDE)**: 1회용 초대 링크로 관찰·협업·전체 중 역할을 정해 접근을 위임합니다. 기간 만료·즉시 회수·폴더 제한이 있고, 게스트는 초대받은 세션만 보며 모든 행위가 감사 기록에 남습니다.
+- **내 크롬 이어받기**: 공식 Playwright 확장으로 이미 로그인된 크롬에서 에이전트가 일합니다 — 연결마다 크롬에서 직접 승인하며, 관리자 화면·사내 콘솔처럼 로그인이 필요한 작업이 가능해집니다.
 - 개인정보와 지정한 회사·제품·고객명, 도메인·인프라 식별자·로컬 경로 같은 민감 정보를 로컬에서 자동 마스킹한 뒤 응답에서 복원할 수 있습니다(Beta).
 - 첨부파일과 웹·도구·커넥터 콘텐츠의 프롬프트 인젝션, 지시 덮어쓰기, 비밀정보 탈취, 승인 우회, 숨은 명령을 로컬 보안 계층에서 탐지하고 검토할 수 있습니다(Beta).
 - 자주 반복하는 승인 패턴은 로컬에서 학습해 자동화를 늘리되, 삭제·강제 푸시·클라우드 자원 제거 같은 비가역 작업은 사람이 계속 확인합니다(Beta).
 - AI 세션이 실행 중이거나 승인 대기 중일 때 컴퓨터 절전을 방지할 수 있습니다.
+
+## Resumen en español
+
+- Conecta varias cuentas de suscripción de Claude y de ChatGPT/Codex en un solo equipo, con las credenciales de cada cuenta aisladas, y gestiona todas las sesiones desde un mismo lugar.
+- El servidor central de AgentDeck no almacena tus prompts, respuestas, salidas de herramientas, archivos ni credenciales de IA. El contenido sí se envía al proveedor de IA que elijas y queda sujeto a sus políticas de retención y entrenamiento.
+- Conecta modelos locales (llama.cpp GGUF, Ollama, LM Studio) y rutas en la nube (Google Vertex AI, Amazon Bedrock, Azure AI Foundry, OpenRouter y pasarelas compatibles aprobadas), además de IA corporativa mediante políticas firmadas.
+- Consulta en un solo lugar los límites de suscripción, los tokens de entrada/salida/caché y el coste estimado de API.
+- Cuando una cuenta alcanza su límite, continúa la sesión con otra cuenta del mismo motor o traspasa el trabajo entre Claude y Codex con un resumen del contexto reciente.
+- **AgentDeck Remote**: teléfono, tableta u otro equipo emparejados con aprobación en el escritorio y código de seguridad, con cifrado de extremo a extremo. Si el PC que usabas está apagado, Remote lo indica y te ofrece cambiar a otro PC.
+- **Delegación a desarrolladores externos (FDE)**: enlaces de invitación de un solo uso con rol (observar, colaborar o total), límite de tiempo y de carpetas, revocación inmediata y registro de auditoría de cada acción. Los invitados solo ven las sesiones a las que fueron invitados.
+- **Trabaja en tu propio Chrome con sesión iniciada**: con la extensión oficial de Playwright, el agente usa tu navegador real — tus inicios de sesión y extensiones — aprobando cada conexión en Chrome. Ideal para paneles de administración y consolas internas.
+- Enmascaramiento local de datos personales y de nombres de empresa/producto/cliente, con restauración en las respuestas (Beta); detección local de inyección de prompts en adjuntos y contenido de herramientas (Beta).
+- Los patrones de aprobación repetidos se aprenden localmente para ampliar la automatización, mientras las acciones irreversibles siguen requiriendo confirmación humana (Beta).
 
 ## Download
 
