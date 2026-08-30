@@ -187,13 +187,13 @@ flowchart TB
 - Each paired device has revocable capability switches and a remote-method allowlist. Revocation closes the active connection.
 - Attachment access is constrained by path containment, symlink rejection, size limits, and sandboxing of untrusted HTML/SVG content.
 
-## Delegate to an outside developer (FDE)
+## Invite collaborators
 
-thread0 can hand a scoped, audited seat on your work computer to someone you choose — an outside developer, a contractor, or a colleague — without sharing accounts or passwords.
+thread0 can give a scoped, audited seat on your work computer to a collaborator you choose — a developer, contractor, specialist, or colleague — without sharing accounts or passwords.
 
-- **Email-bound invitations** with a role you pick: observe (read-only), collaborate (send messages, run sessions, respond to approvals), or full (adds terminal and file transfer). The invitee signs in with that verified email; guest access does not reuse the personal-device pairing code flow.
-- **Guests see only what you invited them to** — the sessions they started or the ones you explicitly shared, never everything running on your machine.
-- **Folder and capability limits per guest**, with file downloads and uploads gated and every action recorded in an audit log you can review.
+- **Email-bound invitations** with a role you pick: observe (read-only), collaborate (send messages, run sessions, respond to approvals), or full (adds terminal and file transfer). The collaborator signs in with that verified email; collaborator access does not reuse the personal-device pairing code flow.
+- **Collaborators see only what you invited them to** — the sessions they started or the ones you explicitly shared, never everything running on your machine.
+- **Folder and capability limits per collaborator**, with file downloads and uploads gated and every action recorded in an audit log you can review.
 - **Time-boxed by default.** Access ends at expiry (extendable by you) and can be revoked at any moment; revocation closes the live connection immediately.
 
 ## Work inside your own signed-in Chrome
@@ -241,12 +241,12 @@ thread0 learns from frequently repeated local approvals and denials to streamlin
 
 ## Download
 
-Current stable release: **0.1.215**
+Current stable release: **0.1.217**
 
 | Platform | Download | Requirements |
 | --- | --- | --- |
-| Windows | [thread0 0.1.215 for Windows](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.215/windows/x64/AgentDeck%20Setup%200.1.215.exe) | Windows 10/11, x64 |
-| macOS | [thread0 0.1.215 for macOS](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.215/macos/arm64/AgentDeck-0.1.215-arm64.dmg) | macOS 13+, Apple Silicon |
+| Windows | [thread0 0.1.217 for Windows](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.217/windows/x64/AgentDeck%20Setup%200.1.217.exe) | Windows 10/11, x64 |
+| macOS | [thread0 0.1.217 for macOS](https://storage.googleapis.com/gendistrict-agentdeck-updates/releases/0.1.217/macos/arm64/AgentDeck-0.1.217-arm64.dmg) | macOS 13+, Apple Silicon |
 
 The desktop downloads use immutable, version-specific URLs. Checksums are published in [SHA512SUMS.txt](SHA512SUMS.txt).
 
