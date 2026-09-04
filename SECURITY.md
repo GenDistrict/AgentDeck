@@ -15,7 +15,7 @@ Older desktop versions should be updated when a signed stable update is availabl
 
 **Do not open a public GitHub issue for a suspected vulnerability.** Use one of these private channels:
 
-1. [Open a private GitHub security advisory](https://github.com/GenDistrict/AgentDeck/security/advisories/new) (preferred).
+1. [Open a private GitHub security advisory](https://github.com/GenDistrict/thread0/security/advisories/new) (preferred).
 2. Email `contact@maidepot.com` with the subject `AgentDeck security report`.
 
 If sensitive evidence is required, first ask for a protected transfer method. Do not send passwords, access tokens, provider credentials, private conversation content, customer data, proprietary source code, or unreviewed diagnostic archives by ordinary email.
